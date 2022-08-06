@@ -1,6 +1,25 @@
 <app-nav></app-nav>
 <div class="container mt-4">
-    <router-outlet></router-outlet>
+    <app-financial-assets></app-financial-assets>
+    <!-- <router-outlet></router-outlet> -->
 </div>
-<app-header></app-header>
-<app-footer></app-footer>
+<!-- <app-header></app-header> -->
+<div class="row">
+    <app-footer></app-footer>
+</div>
+
+<!-- <app-nav></app-nav>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let stock of stocks">
+        <div class="card-body" [stock]="stock">
+            <p class="card-text">{{ stock.id }}</p>
+            <p class="card-text">{{ stock.ticker }}</p>
+            <p class="card-text">{{ stock.quantity }}</p>
+            <p class="card-text">{{ stock.averagePrice | currency: "BRL" }}</p>
+            <p class="card-text">{{ stock.total }}</p>
+            <p class="card-text">{{ stock.quote }}</p>
+            <p class="card-text">{{ stock.profit }}</p>
+        </div>
+    </div>
+</div> -->

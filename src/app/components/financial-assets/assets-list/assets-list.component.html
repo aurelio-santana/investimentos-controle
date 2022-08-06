@@ -1,42 +1,26 @@
-<table class="table">
-    <thead>
+<div class="col">
+    <table class="table table-striped" style="width: 100%">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Ticker</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Preço Médio</th>
-            <th scope="col">Total</th>
-            <th scope="col">Cotação</th>
-            <th scope="col">Lucro</th>
+            <th>#</th>
+            <th>Ticker</th>
+            <th>Quantidade</th>
+            <th>Preço Médio</th>
+            <th>Total</th>
+            <th>Cotação atual</th>
+            <th>Lucro</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>CMIG3</td>
-            <td>2</td>
-            <td>10</td>
-            <td>20</td>
-            <td>15</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>CMIG3</td>
-            <td>2</td>
-            <td>10</td>
-            <td>20</td>
-            <td>15</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>CMIG3</td>
-            <td>2</td>
-            <td>10</td>
-            <td>20</td>
-            <td>15</td>
-            <td>10</td>
-        </tr>
-    </tbody>
-</table>
+
+        <tbody>
+            <tr class="" *ngFor="let stock of stocks">
+                <td class="">{{ stock.id }}</td>
+                <td class="">{{ stock.ticker }}</td>
+                <td class="">{{ stock.quantity }}</td>
+                <td class="">{{ stock.averagePrice | currency: "BRL" }}</td>
+                <!-- <td class="">{{ stock.total }}</td> -->
+                <td class="">{{ stock.quantity * stock.averagePrice | currency: "BRL" }}</td>
+                <td class="">{{ stock.quote | currency: "BRL" }}</td>
+                <td class="">{{ stock.profit | currency: "BRL" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

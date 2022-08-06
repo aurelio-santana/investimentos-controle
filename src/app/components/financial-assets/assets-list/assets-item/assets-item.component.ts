@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Stock } from '../model/stock';
 
 @Component({
   selector: 'app-assets-item',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetsItemComponent implements OnInit {
 
+  @Input()
+  stock!: Stock;
   constructor() { }
 
   ngOnInit(): void {
