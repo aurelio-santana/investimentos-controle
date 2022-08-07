@@ -11,30 +11,27 @@ export class AssetsService {
 
 
   //private url = 'https://localhost:7268/api/investControl';
-  private url = `${environment.mainUrl}/api/investControl`;
+  private url = `${environment.mainUrl}/api/Stock`;
 
-  httpOptions = {
-    Headers: new HttpHeaders({'content-type': 'application/json'})
-  }
+  // httpOptions = {
+  //   Headers: new HttpHeaders({'content-type': 'application/json'})
+  // }
 
-//--------------------- API BD old
+
 
   constructor(private http: HttpClient) { }
 
-  getStock(){
-    return this.http.get(this.url) //full url
-  }
-
-  //--------------------- API BD new
-
-  getAllStocks(): Observable<Stock[]>
+  getStock(): Observable<Stock[]>
   //.get retorna um Observable e a API retorna um array de Aluno
   {
-    return this.http.get<Stock[]>(`${this.url}`);
+    return this.http.get<Stock[]>(this.url)
     //Ao tipar a chamada do método, é necessário tipar o retorno também <>
-
   }
 
+  getAllStocks(): Observable<Stock[]>
+  {
+    return this.http.get<Stock[]>(`${this.url}`);
+  }
 
   getStocksById(id: number): Observable<Stock>
   //a API retorna apenas uma única Stock

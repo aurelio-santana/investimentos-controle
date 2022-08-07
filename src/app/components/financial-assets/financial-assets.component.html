@@ -1,14 +1,16 @@
-<p>financial-assets ddd works!</p>
+<!-- <div class="col">
+        <app-filters></app-filters>
+    </div> -->
 
-<div class="row">
-    <div class="col">
-        <!-- <app-filters></app-filters> -->
+<div class="d-flex justify-content-between mb-2">
+    <div class="">
+        <app-title [title]="title"></app-title>
     </div>
-
-    <div class="col-md-8">
-        <app-assets-list></app-assets-list>
+    <div>
+        <button class="btn btn-warning">Adicionar</button>
     </div>
 </div>
-<!-- <p>financial-assets works!</p>
-<app-assets-list></app-assets-list>
-<p>financial-assets works!</p> -->
+
+<div class="financialAsset">
+    <app-assets-list></app-assets-list>
+</div>

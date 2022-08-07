@@ -11,6 +11,12 @@ import { FiltersComponent } from './components/financial-assets/filters/filters.
 import { AssetsListComponent } from './components/financial-assets/assets-list/assets-list.component';
 import { AssetsItemComponent } from './components/financial-assets/assets-list/assets-item/assets-item.component';
 import { AddAssetFormComponent } from './components/financial-assets/assets-list/addAsset-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TitleComponent } from './components/shared/title/title.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,18 @@ import { AddAssetFormComponent } from './components/financial-assets/assets-list
     FiltersComponent,
     AssetsListComponent,
     AssetsItemComponent,
-    AddAssetFormComponent
+    AddAssetFormComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

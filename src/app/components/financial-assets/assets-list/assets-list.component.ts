@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AssetsService } from './assets.service';
 import { Stock } from './model/stock';
 
@@ -9,37 +10,45 @@ import { Stock } from './model/stock';
 })
 export class AssetsListComponent implements OnInit {
 
-  stocks: any;
-  assetsService : AssetsService
+  public stockForm: FormGroup;
 
-  constructor( assetsService : AssetsService) {
-    this.assetsService = assetsService;
+  public stocks: Stock[];
+
+
+  constructor(private fb: FormBuilder, //Formulários
+              //private modalService: BsModalService,
+              private assetsService : AssetsService) {
+    this.createForm();
   }
 
-  ngOnInit(): void {
+  //ngOnInit(): void {
+  ngOnInit() {
+    this.loadStocks();
+  }
 
-    // var stocks: Stock[] = [
-    //   {
-    //     id: 1,
-    //     ticker: 'CEMIG3',
-    //     quantity: 2,
-    //     averagePrice: 10,
-    //     total: 20,
-    //     quote: 15,
-    //     profit: 10,
-    //   },
-    //   {
-    //     id: 2,
-    //     ticker: 'WEG3',
-    //     quantity: 2,
-    //     averagePrice: 10,
-    //     total: 20,
-    //     quote: 15,
-    //     profit: 10,
-    //   },
-    // ]
-    // console.log(stocks);
+  createForm()
+  {
+    this.stockForm = this.fb.group({
+      ticker: [''],
+      quantity: [],
+      averagePrice: []
 
+    });
+  }
+
+  loadStocks() {
+
+    this.assetsService.getStock().subscribe(
+      (stocks: Stock[]) => {
+        this.stocks = stocks;
+        console.log(this.stocks);
+      },
+      (erro:any) => {
+        console.error(erro);
+      }
+    );
+
+  }
 
     //--------------------- LOCAL
     // this.stocks = this.assetsService.getStock()
@@ -47,10 +56,13 @@ export class AssetsListComponent implements OnInit {
 
 
     //--------------------- API BD
-    this.stocks = this.assetsService.getStock().subscribe((data => {
-      this.stocks = data;
-      console.log(this.stocks);
-    }))
+    // this.stocks = this.assetsService.getStock().subscribe((data => {
+    //   this.stocks = data;
+    //   console.log(this.stocks);
+    // }))
+
+
+
   }
 
-}
+

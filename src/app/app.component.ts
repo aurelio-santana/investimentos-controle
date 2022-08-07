@@ -25,7 +25,7 @@ export class AppComponent {
         quantity: 2,
         averagePrice: 10,
         total: 20,
-        quote: 15,
+        currentQuote: 15,
         profit: 10,
       },
       {
@@ -34,8 +34,8 @@ export class AppComponent {
         quantity: 2,
         averagePrice: 10,
         total: 20,
-        quote: 15,
-        profit: 10,
+        currentQuote: 15,
+        profit: 1000,
       },
     ]
 

@@ -1,0 +1,28 @@
+npm i bootstrap
+(adiciona o path do bootstrap css)
+(adiciona o path do bootstrap bundle js)
+npm i jquery,
+(adiciona o path do jquery em script)
+
+"./node_modules/popper.js/dist/umd/popper.js" add no script se precisar
+
+ng g c components/shared/header
+ng g c components/shared/footer
+ng g c components/shared/nav
+
+ng g c components/financial-assets
+ng g c components/financial-assets/filters
+ng g c components/financial-assets/assets-list
+ng g c components/financial-assets/assets-list/assets-item
+components/financial-assets/assets-list/model
+components/financial-assets/assets-list/model/stock.ts
+components/financial-assets/assets-list/model/reit.ts
+
+npm install ngx-bootstrap --save
+  removido de scripts:    "node_modules/jquery/dist/jquery.min.js",
+                          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+ng add ngx-bootstrap --component dropdowns
+
+
+ng g c components/shared/title
+

@@ -5,7 +5,7 @@ export class Stock {
   quantity!: number;
   averagePrice!: number;
   total!: number;
-  quote!: number;
+  currentQuote!: number;
   profit!: number;
 }
 
