@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Stock } from './components/financial-assets/assets-list/model/stock';
+import { Stock } from './components/financial-assets/assets-list/model/Stock';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent {
     var stocks: Stock[] = [
       {
         id: 1,
-        ticker: 'CEMIG3',
+        ticker: 'CEMIG3 front',
         quantity: 2,
         averagePrice: 10,
         total: 20,
@@ -35,7 +35,7 @@ export class AppComponent {
         averagePrice: 10,
         total: 20,
         currentQuote: 15,
-        profit: 1000,
+        profit: 101,
       },
     ]
 

@@ -1,8 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Stock } from "./model/stock";
+import { Stock } from "./model/Stock";
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs/internal/Observable";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type' : 'application/json'
+  })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +23,6 @@ export class AssetsService {
   // httpOptions = {
   //   Headers: new HttpHeaders({'content-type': 'application/json'})
   // }
-
 
 
   constructor(private http: HttpClient) { }
@@ -39,37 +45,18 @@ export class AssetsService {
     return this.http.get<Stock>(`${this.url}/${id}`);
   }
 
+  post(stock: Stock) {
+    return this.http.post<Stock>(`${this.url}`, stock, httpOptions);
+    //return this.http.post<Stock>(`${this.url}`, stock); //verificar
+  }
+
+  put(id: number, stock: Stock) {
+    return this.http.put<Stock>(`${this.url}/${id}`, stock);
+  }
+
+  delete(id: number) {
+    return this.http.delete<Stock>(`${this.url}/${id}`);
+  }
+
 }
 
-
-
-//--------------------- LOCAL
-
-//   constructor(){}
-
-//   getStock(){
-//     return STOCK
-//   }
-
-// }
-
-// var STOCK: Stock[] = [
-//   {
-//     id: 1,
-//     ticker: 'CEMIG3',
-//     quantity: 2,
-//     averagePrice: 10,
-//     total: 20,
-//     quote: 15,
-//     profit: 10,
-//   },
-//   {
-//     id: 2,
-//     ticker: 'WEG3',
-//     quantity: 2,
-//     averagePrice: 10,
-//     total: 20,
-//     quote: 15,
-//     profit: 10,
-//   },
-// ]

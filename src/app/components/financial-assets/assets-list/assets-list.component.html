@@ -9,6 +9,7 @@
                 <th>Total</th>
                 <th>Cotação atual</th>
                 <th>Lucro</th>
+                <th>Editar/Remover</th>
             </tr>
         </thead>
 
@@ -17,11 +18,27 @@
                 <td class="">{{ stock.id }}</td>
                 <td class="">{{ stock.ticker }}</td>
                 <td class="">{{ stock.quantity }}</td>
-                <td class="">{{ stock.averagePrice | currency: "BRL" }}</td>
+                <td class="">{{ stock.averagePrice | currency : "BRL" }}</td>
                 <!-- <td class="">{{ stock.total }}</td> -->
-                <td class="">{{ stock.quantity * stock.averagePrice | currency: "BRL" }}</td>
-                <td class="">{{ stock.currentQuote | currency: "BRL" }}</td>
-                <td class="">{{ stock.profit | currency: "BRL" }}</td>
+                <td class="">{{ stock.quantity * stock.averagePrice | currency : "BRL" }}</td>
+                <td class="">{{ stock.currentQuote | currency : "BRL" }}</td>
+                <td class="">{{ stock.profit | currency : "BRL" }}</td>
+                <td class="">
+                    <div class="btn-group">
+                        <button
+                            class="btn btn-sm btn-outline-primary"
+                            (click)="selectStocks(stock); openModal(template)"
+                        >
+                            Editar
+                        </button>
+                        <button
+                            class="btn btn-sm btn-outline-danger"
+                            (click)="selectStocks(stock); openModal(deleteForm)"
+                        >
+                            Remover
+                        </button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -40,3 +57,66 @@
       here</a></li>
   </ul>
 </div> -->
+
+<button type="button" class="btn btn-warning" (click)="openModal(template)">Adicionar</button>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Adicionar operação</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- form dentro do modal -->
+        <form [formGroup]="stockForm">
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Ticker</label>
+                <input type="text" formControlName="ticker" class="form-control" />
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Quantidade</label>
+                <input type="text" formControlName="quantity" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Preço Médio</label>
+                <input type="text" formControlName="averagePrice" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Total</label>
+                <input type="text" formControlName="total" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Cotação atual</label>
+                <input type="text" formControlName="currentQuote" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Lucro</label>
+                <input type="text" formControlName="profit" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <button type="button" class="float-end btn btn-primary" (click)="submitForm(); modalRef.hide()">
+                    Confirmar
+                </button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #deleteForm>
+    <div class="modal-header">
+        <h5 class="modal-title pull-left">Remover ação</h5>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Deseja realmente remover esta ação?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="deleteStocks(); modalRef.hide()">Remover</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Cancelar</button>
+    </div>
+</ng-template>
