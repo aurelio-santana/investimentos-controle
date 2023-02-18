@@ -17,6 +17,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TitleComponent } from './components/shared/title/title.component';
+import { OperationsListComponent } from './components/financial-assets/assets-list/operations-list/operations-list.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { TitleComponent } from './components/shared/title/title.component';
     AssetsListComponent,
     AssetsItemComponent,
     AddAssetFormComponent,
-    TitleComponent
+    TitleComponent,
+    OperationsListComponent
   ],
   imports: [
     BrowserModule,

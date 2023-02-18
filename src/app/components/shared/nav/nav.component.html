@@ -15,10 +15,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+                    <a [routerLink]="['/home']" class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a [routerLink]="['/assets']" class="nav-link" href="#">Carteira</a>
+                    <!-- <a [routerLink]="['/assets']" class="nav-link" href="#">Carteira</a> -->
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -34,9 +36,13 @@
                         <!-- refatorar -->
                         <!-- <li><a class="dropdown-item" href="#" (click)="redirectStock()">Ações</a></li>
                         <li><a class="dropdown-item" href="#"(click)="redirectReit()">Fundos Imobiliários</a></li> -->
-                        <li><a [routerLink]="['/add']" fragment="stock" class="dropdown-item" href="#">Ações</a></li>
                         <li>
-                            <a [routerLink]="['/add']" fragment="reit" class="dropdown-item" href="#"
+                            <!-- <a [routerLink]="['/operations/stock']" fragment="stock" class="dropdown-item" href="#" -->
+                            <a [routerLink]="['/operations/stock']" class="dropdown-item" href="#">Ações</a>
+                        </li>
+                        <li>
+                            <!-- <a [routerLink]="['/operations/reit']" fragment="reit" class="dropdown-item" href="#" -->
+                            <a [routerLink]="['/operations/reit']" class="dropdown-item" href="#"
                                 >Fundos Imobiliários</a
                             >
                         </li>

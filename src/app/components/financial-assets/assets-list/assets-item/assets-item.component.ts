@@ -8,8 +8,6 @@ import { Stock } from '../model/Stock';
 })
 export class AssetsItemComponent implements OnInit {
 
-  @Input()
-  stock!: Stock;
   constructor() { }
 
   ngOnInit(): void {

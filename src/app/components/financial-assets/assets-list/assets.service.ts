@@ -30,7 +30,7 @@ export class AssetsService {
   getStock(): Observable<Stock[]>
   //.get retorna um Observable e a API retorna um array de Aluno
   {
-    return this.http.get<Stock[]>(this.url)
+    return this.http.get<Stock[]>(this.url);
     //Ao tipar a chamada do método, é necessário tipar o retorno também <>
   }
 
@@ -45,13 +45,18 @@ export class AssetsService {
     return this.http.get<Stock>(`${this.url}/${id}`);
   }
 
+  getStocksByTicker(ticker: string): Observable<Stock>
+  {
+    return this.http.get<Stock>(`${this.url}/${ticker}`);
+  }
+
   post(stock: Stock) {
     return this.http.post<Stock>(`${this.url}`, stock, httpOptions);
     //return this.http.post<Stock>(`${this.url}`, stock); //verificar
   }
 
   put(id: number, stock: Stock) {
-    return this.http.put<Stock>(`${this.url}/${id}`, stock);
+    return this.http.put<Stock>(`${this.url}/${id}`, stock, httpOptions);
   }
 
   delete(id: number) {

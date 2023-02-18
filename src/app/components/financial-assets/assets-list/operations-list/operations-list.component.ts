@@ -1,16 +1,15 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs/internal/Observable';
-import { AssetsService } from './assets.service';
-import { Stock } from './model/Stock';
+import { AssetsService } from '../assets.service';
+import { Stock } from '../model/Stock';
 
 @Component({
-  selector: 'app-assets-list',
-  templateUrl: './assets-list.component.html',
-  styleUrls: ['./assets-list.component.css']
+  selector: 'app-operations-list',
+  templateUrl: './operations-list.component.html',
+  styleUrls: ['./operations-list.component.css']
 })
-export class AssetsListComponent implements OnInit {
+export class OperationsListComponent implements OnInit {
 
   public stockForm: FormGroup;
   public stocks: Stock[];
@@ -20,6 +19,9 @@ export class AssetsListComponent implements OnInit {
   public requestType: string = 'post';
   public selectedStock: Stock;
   public total = [0, 1, 2, 3];
+
+
+  /* var myApp = angular.module('myApp', ['angular.filter']); */
 
 
   openModal(template: TemplateRef<any>) {
@@ -33,8 +35,41 @@ export class AssetsListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.loadStocks();
+
+
+    this.testeStock = [
+      {
+        id: 1,
+        ticker: 'CEMIG3',
+        quantity: 2,
+        averagePrice: 10,
+        total: 20,
+        currentQuote: 15,
+        profit: 10,
+      },
+      {
+        id: 2,
+        ticker: 'WEG3',
+        quantity: 2,
+        averagePrice: 10,
+        total: 20,
+        currentQuote: 15,
+        profit: 101,
+      },
+      {
+        id: 3,
+        ticker: 'CEMIG3',
+        quantity: 4,
+        averagePrice: 15,
+        total: 25,
+        currentQuote: 25,
+        profit: 25,
+      }
+    ]
+    this.stocksSum = this.loadingg();
+
+
   }
 
   createForm()
@@ -62,11 +97,9 @@ export class AssetsListComponent implements OnInit {
   loadStocks()
   {
     this.assetsService.getStock().subscribe(
-
       (stocks: Stock[]) => {
         this.stocks = stocks;
-        console.log("loadStocks: ", this.stocks);
-        this.stocksSum = this.loadingg();
+        console.log(this.stocks);
       },
       (erro:any) => {
         console.error(erro);
@@ -79,11 +112,11 @@ export class AssetsListComponent implements OnInit {
   }
 
   addStocks(stock: Stock) {
-    stock.id = 0; //Evitar que o id do form fique nulo. Refatorar.
+    stock.id = 0; //Evitar que o id do form fique nulo, refatorar.
     console.log(stock);
     this.assetsService.post(stock).subscribe(
       (retorno: Stock) => {
-        console.log("addStocks: ", retorno);
+        console.log(retorno);
         this.stockForm.reset();
         this.loadStocks();
       },
@@ -96,13 +129,15 @@ export class AssetsListComponent implements OnInit {
   selectStocks(stock: Stock){
     this.requestType = 'put';
     this.selectedStock = stock;
-    this.stockForm.patchValue(stock);
+    /* this.stockForm.patchValue(stock); */
+    this.stockForm.setValue(stock);
+
   }
 
   editStocks(stock: Stock) {
     this.assetsService.put(stock.id, stock).subscribe(
       (retorno: Stock) => {
-        console.log("editStocks: ", retorno);
+        console.log(retorno);
         this.stockForm.reset();
         this.loadStocks();
       },
@@ -116,7 +151,7 @@ export class AssetsListComponent implements OnInit {
   deleteStocks(){
     this.assetsService.delete(this.selectedStock.id).subscribe(
       (retorno: Stock) => {
-        console.log("deleteStocks: ",retorno);
+        console.log(retorno);
         this.stockForm.reset();
         this.loadStocks();
       },
@@ -126,29 +161,51 @@ export class AssetsListComponent implements OnInit {
     );
   }
 
-  loadingg() {
 
-    return this.stocks.reduce((result: any, curr: Stock) => {
-      const objInStock = result.find((o: any) => o.ticker === curr.ticker);
-      if (objInStock)
-        {
-          objInStock.quantity += curr.quantity;
-          objInStock.averagePrice += curr.averagePrice;
-          objInStock.total += curr.total;
-          objInStock.currentQuote += curr.currentQuote;
-          objInStock.profit += curr.profit;
-          /* Correção. Corrigir calculo do preço medio */
-        }
-      else
-        {
-          result.push(curr);
-        }
-      console.log("loadingg if: ", result);
-      return result;
+/*   myApp.controller('MyController', function($scope) {
+    $scope.data = [
+      {Id:1,name:"harry",volume:500},
+      {Id:1,name:"harry",volume:200},
+      {Id:2,name:"Fred",volume:150},
+      {Id:2,name:"Fred",volume:500},
+      {Id:3,name:"Sally",volume:450},
+      {Id:3,name:"Sally",volume:100}
+    ]; */
 
-    },[]);
-  }
+
+    /* getVolumeSum = function(stocks) {
+      return stocks
+      .map(function(x) { return x.ticker; })
+      .reduce(function(a, b) { return a + b; });
+    }; */
+
+
+      loadingg(): Stock[] {
+      return this.testeStock.reduce((result: any, curr: Stock) => {
+        const objInStock = result.find((o: any) => o.ticker === curr.ticker);
+        if (objInStock)
+          {
+            objInStock.quantity += curr.quantity;
+            objInStock.averagePrice += curr.averagePrice;
+            objInStock.total += curr.total;
+            objInStock.currentQuote += curr.currentQuote;
+            objInStock.profit += curr.profit;
+          }
+        else
+          {
+            result.push(curr);
+          }
+        return result;
+      }
+
+      ,[]);
+
+
+    }
+
+/*     loadingg() {
+
+    } */
+
 
 }
-
-
