@@ -12,6 +12,7 @@ import { Stock } from './model/Stock';
 })
 export class AssetsListComponent implements OnInit {
 
+  public title = 'Carteira';
   public stockForm: FormGroup;
   public stocks: Stock[];
   public stocksSum: Stock[];
@@ -20,6 +21,7 @@ export class AssetsListComponent implements OnInit {
   public requestType: string = 'post';
   public selectedStock: Stock;
   public total = [0, 1, 2, 3];
+
 
 
   openModal(template: TemplateRef<any>) {
@@ -126,18 +128,35 @@ export class AssetsListComponent implements OnInit {
     );
   }
 
-  loadingg() {
+  loadingg() { //Refatorar nome
 
     return this.stocks.reduce((result: any, curr: Stock) => {
       const objInStock = result.find((o: any) => o.ticker === curr.ticker);
       if (objInStock)
         {
+
+          console.log("ob avprice, cu avprice, ob qt, cu qt: ", objInStock.averagePrice, curr.averagePrice, objInStock.quantity, curr.quantity);
+
+          //averagePrice precisa ser cálculado antes de quantity para não gerar erro nos cálculos
+          objInStock.averagePrice =
+            (objInStock.averagePrice * objInStock.quantity + curr.averagePrice * curr.quantity) /
+            (objInStock.quantity + curr.quantity);
+
           objInStock.quantity += curr.quantity;
-          objInStock.averagePrice += curr.averagePrice;
-          objInStock.total += curr.total;
+          /* objInStock.averagePrice += curr.averagePrice; */
+
+          /* objInStock.total += curr.total; */
+          objInStock.total = objInStock.quantity * objInStock.averagePrice;
+
           objInStock.currentQuote += curr.currentQuote;
-          objInStock.profit += curr.profit;
-          /* Correção. Corrigir calculo do preço medio */
+
+          /* objInStock.profit += curr.profit; */
+          objInStock.profit = objInStock.total - objInStock.quantity * objInStock.currentQuote;
+
+          /* Correção. Corrigir calculo do preço medio e total*/
+          /* Correção. Corrigir calculo da cotação atual usando API de consulta de cotações */
+
+
         }
       else
         {

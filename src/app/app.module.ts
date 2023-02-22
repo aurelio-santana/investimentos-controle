@@ -18,6 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TitleComponent } from './components/shared/title/title.component';
 import { OperationsListComponent } from './components/financial-assets/assets-list/operations-list/operations-list.component';
+/* import { SpacePipe } from './components/shared/pipe/space.pipe'; */
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import { OperationsListComponent } from './components/financial-assets/assets-li
     AssetsItemComponent,
     AddAssetFormComponent,
     TitleComponent,
-    OperationsListComponent
+    OperationsListComponent,
+    /* SpacePipe */
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,11 @@ import { OperationsListComponent } from './components/financial-assets/assets-li
     BsDropdownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatRadioModule,
+    MatSelectModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

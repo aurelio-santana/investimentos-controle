@@ -1,3 +1,12 @@
+<div class="d-flex justify-content-between mb-2">
+    <div class="">
+        <app-title [title]="title"></app-title>
+    </div>
+    <!-- <div>
+      <button class="btn btn-warning">Adicionar</button>
+  </div> -->
+</div>
+
 <div class="col">
     <table class="table" style="width: 100%">
         <thead class="table-secondary">
@@ -9,6 +18,8 @@
                 <th>Total</th>
                 <th>Cotação atual</th>
                 <th>Lucro</th>
+                <th>Tipo</th>
+                <th>Data</th>
                 <th>Editar/Remover</th>
             </tr>
         </thead>
@@ -23,6 +34,8 @@
                 <!-- <td class="">{{ stock.quantity * stock.averagePrice | currency : "BRL" }}</td> -->
                 <td class="">{{ stock.currentQuote | currency : "BRL" }}</td>
                 <td class="">{{ stock.profit | currency : "BRL" }}</td>
+                <td class="">{{ stock.orderType }}</td>
+                <td class="">{{ stock.date | date : "dd/MM/yyyy" }}</td>
                 <td class="">
                     <div class="btn-group">
                         <button
@@ -107,6 +120,47 @@
                 <input type="text" formControlName="profit" class="form-control" />
             </div>
 
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Tipo</label>
+                <input type="text" formControlName="profit" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExemplaeInput" class="form-label">Data</label>
+                <input type="text" formControlName="profit" class="form-control" />
+            </div>
+
+            <!-- <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Option 1</mat-radio-button>
+                <mat-radio-button value="2">Option 2</mat-radio-button>
+            </mat-radio-group> -->
+
+            <!-- Default radio -->
+            <!-- <div class="form-check">
+                <input mdbRadio class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                <label class="form-check-label" for="flexRadioDefault1"> Default radio </label>
+            </div> -->
+            <!-- Default checked radio -->
+            <!-- <div class="form-check">
+                <input
+                    mdbRadio
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault2"
+                    [checked]="true"
+                />
+                <label class="form-check-label" for="flexRadioDefault2"> Default checked radio </label>
+            </div>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+ -->
             <div class="mb-3">
                 <button type="button" class="float-end btn btn-primary" (click)="submitForm(); modalRef.hide()">
                     Confirmar

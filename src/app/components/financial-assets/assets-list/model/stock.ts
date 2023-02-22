@@ -7,5 +7,8 @@ export class Stock {
   total!: number;
   currentQuote!: number;
   profit!: number;
+
+  orderType!: number;
+  date!: any;
 }
 

@@ -4,6 +4,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AssetsService } from '../assets.service';
 import { Stock } from '../model/Stock';
 
+
 @Component({
   selector: 'app-operations-list',
   templateUrl: './operations-list.component.html',
@@ -11,34 +12,32 @@ import { Stock } from '../model/Stock';
 })
 export class OperationsListComponent implements OnInit {
 
+  public title = 'Ações';
   public stockForm: FormGroup;
   public stocks: Stock[];
-  public stocksSum: Stock[];
   public testeStock: Stock[];
   modalRef: BsModalRef;
   public requestType: string = 'post';
   public selectedStock: Stock;
-  public total = [0, 1, 2, 3];
 
-
-  /* var myApp = angular.module('myApp', ['angular.filter']); */
-
+/*   favoriteSeason: string;
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']; */
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
   constructor(private fb: FormBuilder, //Formulários
-              private modalService: BsModalService, //Popup
-              private assetsService : AssetsService) {
+    private modalService: BsModalService, //Popup
+    private assetsService: AssetsService) {
     this.createForm();
   }
 
   ngOnInit() {
+
     this.loadStocks();
 
-
-    this.testeStock = [
+    /* this.testeStock = [
       {
         id: 1,
         ticker: 'CEMIG3',
@@ -47,6 +46,9 @@ export class OperationsListComponent implements OnInit {
         total: 20,
         currentQuote: 15,
         profit: 10,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
       },
       {
         id: 2,
@@ -56,6 +58,9 @@ export class OperationsListComponent implements OnInit {
         total: 20,
         currentQuote: 15,
         profit: 101,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
       },
       {
         id: 3,
@@ -65,15 +70,14 @@ export class OperationsListComponent implements OnInit {
         total: 25,
         currentQuote: 25,
         profit: 25,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
       }
-    ]
-    this.stocksSum = this.loadingg();
-
-
+    ] */
   }
 
-  createForm()
-  {
+  createForm() {
     this.stockForm = this.fb.group({
       id: [0],
       ticker: [''],
@@ -81,7 +85,10 @@ export class OperationsListComponent implements OnInit {
       averagePrice: [],
       total: [],
       currentQuote: [],
-      profit: []
+      profit: [],
+
+      orderType: [],
+      date: []
     });
   }
 
@@ -94,20 +101,19 @@ export class OperationsListComponent implements OnInit {
       console.log("Tipo de requisição (requestType) inválido!");
   }
 
-  loadStocks()
-  {
+  loadStocks() {
     this.assetsService.getStock().subscribe(
       (stocks: Stock[]) => {
         this.stocks = stocks;
         console.log(this.stocks);
       },
-      (erro:any) => {
+      (erro: any) => {
         console.error(erro);
       }
     );
   }
 
-  setMode(){
+  setMode() {
     this.requestType = 'post';
   }
 
@@ -126,12 +132,11 @@ export class OperationsListComponent implements OnInit {
     );
   }
 
-  selectStocks(stock: Stock){
+  selectStocks(stock: Stock) {
     this.requestType = 'put';
     this.selectedStock = stock;
     /* this.stockForm.patchValue(stock); */
     this.stockForm.setValue(stock);
-
   }
 
   editStocks(stock: Stock) {
@@ -148,7 +153,7 @@ export class OperationsListComponent implements OnInit {
     this.requestType = 'post';
   }
 
-  deleteStocks(){
+  deleteStocks() {
     this.assetsService.delete(this.selectedStock.id).subscribe(
       (retorno: Stock) => {
         console.log(retorno);
@@ -160,52 +165,5 @@ export class OperationsListComponent implements OnInit {
       }
     );
   }
-
-
-/*   myApp.controller('MyController', function($scope) {
-    $scope.data = [
-      {Id:1,name:"harry",volume:500},
-      {Id:1,name:"harry",volume:200},
-      {Id:2,name:"Fred",volume:150},
-      {Id:2,name:"Fred",volume:500},
-      {Id:3,name:"Sally",volume:450},
-      {Id:3,name:"Sally",volume:100}
-    ]; */
-
-
-    /* getVolumeSum = function(stocks) {
-      return stocks
-      .map(function(x) { return x.ticker; })
-      .reduce(function(a, b) { return a + b; });
-    }; */
-
-
-      loadingg(): Stock[] {
-      return this.testeStock.reduce((result: any, curr: Stock) => {
-        const objInStock = result.find((o: any) => o.ticker === curr.ticker);
-        if (objInStock)
-          {
-            objInStock.quantity += curr.quantity;
-            objInStock.averagePrice += curr.averagePrice;
-            objInStock.total += curr.total;
-            objInStock.currentQuote += curr.currentQuote;
-            objInStock.profit += curr.profit;
-          }
-        else
-          {
-            result.push(curr);
-          }
-        return result;
-      }
-
-      ,[]);
-
-
-    }
-
-/*     loadingg() {
-
-    } */
-
 
 }

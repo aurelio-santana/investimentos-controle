@@ -27,6 +27,9 @@ export class AppComponent {
         total: 20,
         currentQuote: 15,
         profit: 10,
+
+        orderType: 1,
+        date: new Date(1,1,2001)
       },
       {
         id: 2,
@@ -36,6 +39,9 @@ export class AppComponent {
         total: 20,
         currentQuote: 15,
         profit: 101,
+
+        orderType: 1,
+        date: new Date(1,1,2001)
       },
     ]
 

@@ -1,3 +1,9 @@
+<div class="d-flex justify-content-between mb-2">
+    <div class="">
+        <app-title [title]="title"></app-title>
+    </div>
+</div>
+
 <div class="col">
     <table class="table" style="width: 100%">
         <thead class="table-secondary">
@@ -18,11 +24,11 @@
                 <td class="">{{ stock.id }}</td>
                 <td class="">{{ stock.ticker }}</td>
                 <td class="">{{ stock.quantity }}</td>
-                <td class="">{{ stock.averagePrice | currency : "BRL" }}</td>
-                <td class="">{{ stock.total | currency : "BRL" }}</td>
+                <td class="">{{ stock.averagePrice | currency : "R$ " }}</td>
+                <td class="">{{ stock.total | currency : "R$ " }}</td>
                 <!-- <td class="">{{ stock.quantity * stock.averagePrice | currency : "BRL" }}</td> -->
-                <td class="">{{ stock.currentQuote | currency : "BRL" }}</td>
-                <td class="">{{ stock.profit | currency : "BRL" }}</td>
+                <td class="">{{ stock.currentQuote | currency : "R$ " }}</td>
+                <td class="">{{ stock.profit | currency : "R$ " }}</td>
                 <td class="">
                     <div class="btn-group">
                         <button
