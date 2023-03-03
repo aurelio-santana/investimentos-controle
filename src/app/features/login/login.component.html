@@ -1,0 +1,242 @@
+<!-- <div class="card mb-3" style="max-width: 540px">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="assets\imgs\LOGO-A4B7.png" class="img-fluid rounded-start" alt="..." />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to additional content. This
+                    content is a little bit longer.
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="login-page">
+    <div class="content">
+        <div class="logo-clear">
+            <button type="button" aria-label="Clear Corretora, página principal">
+                <img src="assets\imgs\LOGO-A4B7.png" alt="Logo da corretora Clear" />
+            </button>
+        </div>
+        <div class="data-container">
+            <div class="error-container">
+                <div class="toast-container">
+                    <div class="message-text"><p></p></div>
+                </div>
+            </div>
+            <div class="go-back">
+                <button type="button" aria-label="Voltar para página inicial">
+                    <div soma-icon="true" class="soma-icon"></div>
+                </button>
+            </div>
+            <div>
+                <div class="login-form">
+                    <form aria-label="Formulário de login">
+                        <button class="send-button" type="submit" aria-label="Acessar minha conta" disabled="">
+                            Acessar minha conta
+                        </button>
+                    </form>
+                </div>
+                <div class="forgot-password">
+                    <button type="button" aria-label="Esqueci minha senha">Esqueci minha senha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M19 12H6"
+        stroke="#131A20"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style="stroke: rgb(5, 0, 245)"
+    ></path>
+    <path
+        d="M12 19L5 12L12 5"
+        stroke="#131A20"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style="stroke: rgb(5, 0, 245)"
+    ></path>
+</svg> -->
+
+<div class="login-page">
+    <div class="content">
+        <div class="logo-clear">
+            <button type="button" aria-label="Clear Corretora, página principal">
+                <img src="assets\imgs\LOGO-A4B7-NEW1.png" alt="Logo da corretora Clear" />
+            </button>
+        </div>
+
+        <div class="data-container">
+            <div class="error-container">
+                <div class="toast-container">
+                    <div variant="error" closable="true" data-testid="toast-element" class="hydrated Valert"></div>
+                    <div class="message-text"><p></p></div>
+                </div>
+            </div>
+            <div class="go-back">
+                <button type="button" aria-label="Voltar para página inicial">
+                    <div size="md" icon="arrow-left" color="#0500F5" class="hydrated Vicon">
+                        <div soma-icon="true" class="Vicon">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M19 12H6"
+                                    stroke="#131A20"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    style="stroke: rgb(22, 129, 0)"
+                                ></path>
+                                <path
+                                    d="M12 19L5 12L12 5"
+                                    stroke="#131A20"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    style="stroke: rgb(22, 129, 0)"
+                                ></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="link-text soma-caption hydrated Vcaption">
+                        <!-- #shadow-root -->
+                        <span><slot></slot></span>
+                        <!-- #shadow-root -->
+                        Voltar
+                    </div>
+                </button>
+            </div>
+            <div>
+                <div tabindex="0" class="title Vheading heading-4 hydrated">
+                    Some incredible title here, <br />tile continuation here!
+                </div>
+
+                <div tabindex="0" class="subtitle Vparagraph hydrated">Faça o login para acessar sua conta.</div>
+                <div class="login-form">
+                    <form aria-label="Formulário de login">
+                        <div
+                            type="text"
+                            name="username"
+                            id="div-username"
+                            label="Entre com seu CPF ou CNPJ"
+                            arialabel="Entre com seu CPF ou CNPJ"
+                            mask="999.999.999-99"
+                            value=""
+                            class="input-user Vtext-field lg hydrated"
+                            aria-label="Entre com seu CPF ou CNPJ"
+                        >
+                            <!-- #shadow-root -->
+                            <div class="control">
+                                <!-- <input
+                                    id="ttt"
+                                    type="text"
+                                    placeholder=""
+                                    name="username"
+                                    aria-label="Entre com seu CPF ou CNPJ"
+                                    ng-focus="{this.isFocused=true}"
+                                    ng-blur="{this.isFocused=false}"
+                                    (click)="pocus()"
+                                    ngModel="asd"
+                                    [ngClass]="{ pocus: isFocused === 'pocus' }"
+                                /><label class="">Entre com seu CPF ou CNPJ</label> -->
+                                <input
+                                    id="input-username"
+                                    type="text"
+                                    placeholder=""
+                                    name="username"
+                                    aria-label="Entre com seu CPF ou CNPJ"
+                                /><label id="label-username" (click)="usernameLabelFocus()"
+                                    >Entre com seu CPF ou CNPJ</label
+                                >
+                                <div class="bar"></div>
+                            </div>
+                            <span id="span-error" class="feedback error">Informe seu CPF/CNPJ</span>
+                        </div>
+
+                        <div
+                            type="password"
+                            name="password"
+                            id="div-password"
+                            label="Entre com sua senha"
+                            arialabel="Entre com sua senha"
+                            actionicon="eye"
+                            value=""
+                            mask="999999"
+                            class="input-password Vtext-field lg hydrated"
+                            aria-label="Entre com sua senha"
+                            action-icon="eye"
+                        >
+                            <!-- #shadow-root -->
+                            <div class="control action-icon">
+                                <input
+                                    type="password"
+                                    placeholder=""
+                                    name="password"
+                                    id="input-password"
+                                    aria-label="Entre com sua senha"
+                                /><label id="label-password" class="" (click)="passwordLabelFocus()"
+                                    >Entre com sua senha</label
+                                >
+                                <div class="icon-action">
+                                    <div class="hydrated Vicon">
+                                        <div soma-icon="true" class="Vicon">
+                                            <svg
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M1.23701 12.4345C1.08073 12.1613 1.08073 11.8387 1.23701 11.5655C2.19095 9.89791 5.98962 4 12 4C18.0104 4 21.809 9.89791 22.763 11.5655C22.9193 11.8387 22.9193 12.1613 22.763 12.4345C21.809 14.1021 18.0104 20 12 20C5.98962 20 2.19095 14.1021 1.23701 12.4345Z"
+                                                    stroke="black"
+                                                    stroke-width="1.5"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                ></path>
+                                                <path
+                                                    d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                                                    stroke="black"
+                                                    stroke-width="1.5"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar"></div>
+                            </div>
+                            <style>
+                                .Vicon {
+                                    display: block;
+                                    line-height: 0;
+                                }
+                            </style>
+                        </div>
+                        <button class="send-button" type="submit" aria-label="Acessar minha conta" disabled="">
+                            Acessar minha conta
+                        </button>
+                    </form>
+                </div>
+                <div class="forgot-password">
+                    <button type="button" aria-label="Esqueci minha senha">Esqueci minha senha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

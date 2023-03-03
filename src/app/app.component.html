@@ -1,8 +1,10 @@
-<app-nav></app-nav>
+<!-- <app-nav></app-nav> -->
+<app-nav *ngIf="!showNav"></app-nav>
 <div class="container mt-4">
     <div class="">
         <div class="">
-            <app-financial-assets></app-financial-assets>
+            <router-outlet (activate)="subscribeToEmitter($event)"></router-outlet>
+            <!-- <app-financial-assets></app-financial-assets> -->
         </div>
     </div>
     <!-- <router-outlet></router-outlet> -->
@@ -10,20 +12,3 @@
 <div class="row">
     <app-footer></app-footer>
 </div>
-<!-- <app-header></app-header> -->
-
-<!-- <app-nav></app-nav>
-
-<div class="row">
-    <div class="col-md-4" *ngFor="let stock of stocks">
-        <div class="card-body" [stock]="stock">
-            <p class="card-text">{{ stock.id }}</p>
-            <p class="card-text">{{ stock.ticker }}</p>
-            <p class="card-text">{{ stock.quantity }}</p>
-            <p class="card-text">{{ stock.averagePrice | currency: "BRL" }}</p>
-            <p class="card-text">{{ stock.total }}</p>
-            <p class="card-text">{{ stock.quote }}</p>
-            <p class="card-text">{{ stock.profit }}</p>
-        </div>
-    </div>
-</div> -->

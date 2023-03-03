@@ -1,0 +1,410 @@
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+
+
+.login-page .content {
+  width: 1040px;
+  height: 660px;
+  display: flex;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 16%);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+
+.login-page .content .data-container .title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.login-page .content .data-container .subtitle {
+  color: #131a20;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 64px;
+}
+.hydrated {
+  visibility: inherit;
+}
+
+
+
+.login-page .content .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-page .content .forgot-password, .login-page .content .forgot-password button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.login-page .content .logo-clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  /* background-color: #0500f5; */
+  width: 336px;
+  /* border-right: 4px solid #979797; */
+  border-right: 4px solid #00ad1d;
+}
+
+.login-page .content .logo-clear button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+
+.login-page .content .data-container {
+  position: relative;
+  flex: 1;
+  background-color: #fff;
+}
+
+
+
+.img {
+  background-color: black;
+}
+
+
+
+
+
+.Vheading{
+  display: block;
+  color: rgb(19, 26, 32);
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 80px;
+}
+
+.heading-4 {
+  font-size: 32px;
+}
+
+.Vparagraph {
+  display: block;
+  color: rgb(77, 103, 126);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+
+
+
+.login-page .content .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page .content .login-form form {
+  width: 336px;
+}
+
+.login-page .content .login-form .input-user {
+  margin-bottom: 32px;
+}
+
+.login-page .content .login-form .input-password {
+  margin-bottom: 64px;
+}
+
+.Vtext-field.lg {
+  height: 64px;
+}
+
+.Vtext-field {
+  display: block;
+}
+
+.control {
+  background: transparent;
+  border-radius: 0px;
+  border-style: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.Vtext-field.lg .control.action-icon input {
+  padding-right: 40px;
+}
+
+.Vtext-field.lg input {
+  height: 64px;
+  font-size: 16px;
+  padding: 26px 16px 10px 0px;
+  border-bottom: 1px solid rgb(191, 204, 216);
+}
+
+input {
+  appearance: none;
+  background: transparent;
+  border-bottom: solid rgb(191, 204, 216);
+  border-image: initial;
+  display: block;
+  outline: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.1s ease-out 0s;
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  color: rgb(19, 26, 32);
+  font-weight: 500;
+  border-radius: unset;
+  border-left: 0px solid rgb(191, 204, 216);
+  border-top: 0px solid rgb(191, 204, 216);
+  border-right: 0px solid rgb(191, 204, 216);
+}
+
+input:focus {
+  border-width: 0px 0px 2px;
+  border-style: solid;
+  border-color: rgb(191,204,216);
+}
+
+input:active {
+  background-color: inherit;
+}
+
+input:hover {
+  background-color: inherit;
+}
+
+input:focus-visible {
+  outline-offset: 0px;
+}
+
+input[type="text" i] {
+  padding: 1px 2px;
+}
+
+input[type="password" i] {
+  -webkit-text-security: disc !important;
+  padding: 1px 2px;
+}
+
+:focus-visible {
+  outline: webkit-focus-ring-color auto 1px;
+  /* outline: auto 1px -webkit-focus-ring-color; */
+}
+
+.Vtext-field.lg label {
+  font-size: 16px;
+  left: 0px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  /* font-family: "Clear Geo"; */
+  font-family: system-ui;
+  font-weight: 500;
+  color: rgb(77, 103, 126);
+  left: 0px;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: text;
+  text-align: left;
+}
+
+.Vtext-field.lg .bar {
+  border-bottom: 2px solid rgb(19, 26, 32);
+}
+
+.bar {
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  transition: all 0.3s ease 0s;
+  width: 0px;
+  margin: 0px;
+  border-bottom: 2px solid rgb(19, 26, 32);
+}
+
+input:focus ~ .bar, .bar.focus{
+  width: 100%;
+}
+
+.feedback.error {
+  color: rgb(194, 5, 43);
+  display: none;
+}
+
+/* .error {
+  color: rgb(194, 5, 43);
+} */
+
+.feedback {
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  font-size: 12px;
+}
+
+.Vtext-field.filled input ~ label {
+  display: unset;
+  font-size: 12px;
+  transform: translateY(-20px);
+  color: rgb(57,77,95);
+}
+
+.Vtext-field:hover label {
+  color: rgb(77,103,126);
+}
+
+.Vtext-field .icon-action {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.pocus {
+  border-left: 5px solid green !important;
+  background-color: lightgreen;
+}
+
+
+
+
+/** go-back **/
+
+.login-page .content .data-container .go-back {
+  margin: 16px 0 16px 16px;
+  height: 32px;
+  width: 112px;
+}
+
+.login-page .content .data-container .go-back button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}
+
+.Vicon {
+  display: block;
+  line-height: 0;
+}
+
+.login-page .content .data-container .go-back .link-text {
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #168100;
+  margin-left: 11px;
+}
+
+.Vcaption {
+  display: block;
+  color: rgb(77, 103, 126);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+.Vcaption span {
+  display: block;
+}
+/* @supports (margin-block-start:0)
+.Vcaption span {
+    margin-block: 0px;
+    margin-inline: 0px;
+    font-family: "Clear Geo";
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+} */
+
+.Vcaption span {
+  margin-block: 0px;
+  margin-inline: 0px;
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+slot {
+  display: contents;
+}
+
+
+/** buttons **/
+
+.login-page .content .login-form .send-button:disabled {
+  background-color: #dfe6ec;
+  color: #4d677e;
+  cursor: no-drop;
+}
+
+.login-page .content .login-form .send-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  margin-bottom: 24px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  background-color: #168100;
+  color: #fff;
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-page .content .forgot-password, .login-page .content .forgot-password button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page .content .forgot-password button {
+  height: 48px;
+  width: 336px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: #168100;
+  /* font-family: Clear Geo; */
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 500;
+}
+.login-page .content .forgot-password, .login-page .content .forgot-password button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

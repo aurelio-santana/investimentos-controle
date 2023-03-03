@@ -20,6 +20,7 @@ export class OperationsListComponent implements OnInit {
   public requestType: string = 'post';
   public selectedStock: Stock;
 
+
 /*   favoriteSeason: string;
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']; */
 
