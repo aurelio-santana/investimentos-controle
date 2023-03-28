@@ -1,14 +1,17 @@
-<!-- <app-nav></app-nav> -->
 <app-nav *ngIf="!showNav"></app-nav>
+<router-outlet (activate)="subscribeToEmitter($event)"></router-outlet>
+<div class="row">
+    <app-footer></app-footer>
+</div>
+
+<!-- <app-nav *ngIf="!showNav"></app-nav>
 <div class="container mt-4">
     <div class="">
         <div class="">
             <router-outlet (activate)="subscribeToEmitter($event)"></router-outlet>
-            <!-- <app-financial-assets></app-financial-assets> -->
         </div>
     </div>
-    <!-- <router-outlet></router-outlet> -->
 </div>
 <div class="row">
     <app-footer></app-footer>
-</div>
+</div> -->

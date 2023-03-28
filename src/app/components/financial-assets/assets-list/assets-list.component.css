@@ -36,5 +36,16 @@ th {
   color: white; */
 }
 
+.apiLoading{
+  margin: 20px;
+  color: blue;
+  font-weight: 500;
+}
+.apiOff{
+  margin: 20px;
+  color: red;
+  font-weight: 500;
+}
+
 
 

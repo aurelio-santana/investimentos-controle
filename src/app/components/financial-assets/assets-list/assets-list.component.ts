@@ -1,3 +1,4 @@
+import { NumberFormatStyle } from '@angular/common';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -21,6 +22,10 @@ export class AssetsListComponent implements OnInit {
   public requestType: string = 'post';
   public selectedStock: Stock;
   public total = [0, 1, 2, 3];
+  public stocksPrice: Array<{ticker: string, averagePrice: number}>
+  public newTimeUpdate: any;
+  public oldTimeUpdate: any;
+  public apiStatus: number = 1; //api loading
 
 
 
@@ -36,7 +41,55 @@ export class AssetsListComponent implements OnInit {
 
   ngOnInit() {
 
+    var data = new Date()
+    this.oldTimeUpdate = (data.getFullYear() + "-" + ((data.getMonth() + 1)) + "-" + (data.getDate()
+    + " " + data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds() ));
+
     this.loadStocks();
+
+
+
+      this.testeStock = [
+      {
+        id: 1,
+        ticker: 'CMIG3',
+        quantity: 2,
+        averagePrice: 10,
+        total: 20,
+        currentQuote: 15,
+        profit: 10,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
+      },
+      {
+        id: 2,
+        ticker: 'WEGE3',
+        quantity: 2,
+        averagePrice: 10,
+        total: 20,
+        currentQuote: 15,
+        profit: 101,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
+      },
+      {
+        id: 3,
+        ticker: 'VALE3',
+        quantity: 4,
+        averagePrice: 15,
+        total: 25,
+        currentQuote: 25,
+        profit: 25,
+
+        orderType: 1,
+        date: new Date(1, 1, 2001)
+      }
+    ]
+
+    //this.getPrice();
+
   }
 
   createForm()
@@ -69,8 +122,14 @@ export class AssetsListComponent implements OnInit {
         this.stocks = stocks;
         console.log("loadStocks: ", this.stocks);
         this.stocksSum = this.loadingg();
+
+        this.getPrice();
+        this.apiStatus = 2; //api on
+        console.log("AQUI", this.newTimeUpdate);
+
       },
       (erro:any) => {
+        this.apiStatus = 0; //api off
         console.error(erro);
       }
     );
@@ -133,41 +192,89 @@ export class AssetsListComponent implements OnInit {
     return this.stocks.reduce((result: any, curr: Stock) => {
       const objInStock = result.find((o: any) => o.ticker === curr.ticker);
       if (objInStock)
-        {
+      {
 
-          console.log("ob avprice, cu avprice, ob qt, cu qt: ", objInStock.averagePrice, curr.averagePrice, objInStock.quantity, curr.quantity);
+        console.log("ob avprice, cu avprice, ob qt, cu qt: ", objInStock.averagePrice, curr.averagePrice, objInStock.quantity, curr.quantity);
 
-          //averagePrice precisa ser cálculado antes de quantity para não gerar erro nos cálculos
-          objInStock.averagePrice =
-            (objInStock.averagePrice * objInStock.quantity + curr.averagePrice * curr.quantity) /
-            (objInStock.quantity + curr.quantity);
+        //averagePrice precisa ser cálculado antes de quantity para não gerar erro nos cálculos
+        objInStock.averagePrice =
+          (objInStock.averagePrice * objInStock.quantity + curr.averagePrice * curr.quantity) /
+          (objInStock.quantity + curr.quantity);
 
-          objInStock.quantity += curr.quantity;
-          /* objInStock.averagePrice += curr.averagePrice; */
+        objInStock.quantity += curr.quantity;
+        /* objInStock.averagePrice += curr.averagePrice; */
 
-          /* objInStock.total += curr.total; */
-          objInStock.total = objInStock.quantity * objInStock.averagePrice;
+        /* objInStock.total += curr.total; */
+        objInStock.total = objInStock.quantity * objInStock.averagePrice;
 
-          objInStock.currentQuote += curr.currentQuote;
+        objInStock.currentQuote += curr.currentQuote;
 
-          /* objInStock.profit += curr.profit; */
-          objInStock.profit = objInStock.total - objInStock.quantity * objInStock.currentQuote;
+        /* objInStock.profit += curr.profit; */
+        objInStock.profit = objInStock.total - objInStock.quantity * objInStock.currentQuote;
 
-          /* Correção. Corrigir calculo do preço medio e total*/
-          /* Correção. Corrigir calculo da cotação atual usando API de consulta de cotações */
+        /* Correção. Corrigir calculo do preço medio e total*/
+        /* Correção. Corrigir calculo da cotação atual usando API de consulta de cotações */
 
 
-        }
+      }
       else
-        {
-          result.push(curr);
-        }
+      {
+        result.push(curr);
+      }
       console.log("loadingg if: ", result);
       return result;
 
     },[]);
   }
 
+
+  getPrice(){
+
+
+    this.stocksSum.forEach(async item => {
+
+      this.handleGetPriceByTicker(item.ticker).then((result) => {
+        console.log("Aqui o preço: ", result);
+        item.currentQuote = result;
+      })
+      console.log("teste")
+      //console.log("Aqui o preço: ", 10);
+      //return 10;
+
+
+    })
+    console.log("novo array: ", this.testeStock);
+  }
+
+
+handleGetPriceByTicker = (ticker: string) => {
+  return new Promise<number>((resolve, reject) => {
+      /* const error
+
+      if (error) {
+          reject(new Error('deu error fi'))
+      } */
+
+      let price = this.fetchPrice(ticker)
+      resolve(price)
+  })
 }
+
+  async fetchPrice(ticker: string) {
+    try {
+      const response = await fetch(`https://cotacao.b3.com.br/mds/api/v1/instrumentQuotation/`+ticker);
+      const data = await response.json();
+      this.newTimeUpdate = data.Msg.dtTm;
+      if (this.newTimeUpdate == this.oldTimeUpdate)
+        console.log("data igual")
+      return data.Trad[0].scty.SctyQtn.curPrc;
+
+    } catch (error) {
+      console.log("Erro: ", error);
+      console.log("Ticker não encontrado, valor 0.")
+      return 0;
+    }
+  }
+  }
 
 

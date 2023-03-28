@@ -1,0 +1,103 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#"><span>in</span>VEST</a> -->
+        <a [routerLink]="['/temphome']" class="navbar-brand" href="#">in<span>VEST</span></a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a [routerLink]="['/home']" class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/assets']" class="nav-link" href="#">Produto</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/assets']" class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/assets']" class="nav-link" href="#">Contato</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse nav_login_button" id="navbarSupportedContent">
+            <!-- Adicionar button para evitar ter que colocar 2 routerLink -->
+            <div [routerLink]="['/login']" class="login_button">
+                <a [routerLink]="['/login']">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- <nav class="navbar navbar-dark navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav> -->
+
+<div class="container_content">
+    <div class="item_content left">
+        <h1>Gerenciador de investimentos completo</h1>
+        <!-- <h2>Gerencie o seu patrimônio e acompanhe a evolução dos seus investimentos</h2> -->
+        <br />
+        <h2><span>></span>Gerencie o seu patrimônio</h2>
+        <h2><span>></span>Acompanhe a evolução dos seus investimentos</h2>
+        <h2><span>></span>Declare seu imposto de renda</h2>
+    </div>
+    <div class="item_content right">
+        <!-- <img src="https://cdn.dribbble.com/userupload/3821664/file/original-48e1fb39f3b81a1f04750e2b13bd09cc.png" /> -->
+        <img src="../../assets/imgs/c3-black-corrected-trp.png" />
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <h1>Gerenciador de investimentos completo</h1>
+  <h2>Gerencie o seu patrimônio e acompanhe a evolução dos seus investimentos</h2>
+</div>
+<div class="row">
+  <div class="col-6">
+      <h1>Gerenciador de investimentos completo</h1>
+      <h2>Gerencie o seu patrimônio e acompanhe a evolução dos seus investimentos</h2>
+  </div>
+  <div class="col-8">
+      /** <img src="https://cdn.dribbble.com/userupload/3821664/file/original-48e1fb39f3b81a1f04750e2b13bd09cc.png" />
+      <img src="../../assets/imgs/c3-black-corrected.png" />
+  </div>
+</div> -->

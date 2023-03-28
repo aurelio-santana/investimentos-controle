@@ -167,4 +167,66 @@ export class OperationsListComponent implements OnInit {
     );
   }
 
+  /* getPriceByTicker(ticker: String) {
+
+
+
+    var price = fetchPrice(ticker);
+    console.log(price)
+    return price;
+
+
+    } */
+
+
+/*   getPriceByTicker(ticker: String) {
+    let price = this.handleGetPriceByTicker(ticker).then((result) => {
+      console.log("Aqui o preço: ", result);
+      return result;
+    })
+    return price
+    console.log("teste")
+    //console.log("Aqui o preço: ", 10);
+    //return 10;
+  } */
+
+/*   handleGetPriceByTicker = (ticker: String) => {
+    return new Promise((resolve, reject) => {
+        const error = false;
+
+        if (error) {
+            reject(new Error('deu error fi'))
+        }
+
+        let price = this.fetchPrice(ticker)
+        resolve(price)
+    })
+  } */
+
+  fetchPrice(acoes: Stock[]) {
+    /* try {
+      //const response = await fetch(`https://cotacao.b3.com.br/mds/api/v1/instrumentQuotation/`+ticker);
+      //const data = await response.json();
+      //console.log("Success: ", ticker, data.Trad[0].scty.SctyQtn.curPrc)
+      //return data.Trad[0].scty.SctyQtn.curPrc;
+      console.log("Success, ticker: ", ticker)
+      return 1
+
+    } catch (error) {
+      console.log("Erro: ", error);
+      console.log("Ticker não encontrado, valor 0.")
+      return 0;
+    } */
+    return 0;
+  }
+
+
+
+
 }
+
+
+
+
+
+

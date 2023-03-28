@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Stock } from './components/financial-assets/assets-list/model/Stock';
+import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 
 @Component({
@@ -67,13 +68,18 @@ export class AppComponent {
   } */
 
   subscribeToEmitter(componentRef: any){
-    if (!(componentRef instanceof LoginComponent)){
+    if (!(componentRef instanceof LoginComponent || componentRef instanceof HomeComponent)){
       this.showNav = false;
       return;
     }
-      console.log("passou aqui: ", this.showNav);
-      this.showNav = true;
-      console.log("escondeu nav: ", this.showNav);
+    else this.showNav = true;
+
+/*     if (!(componentRef instanceof HomeComponent)){
+      this.showNav = false;
+      return;
+    }
+    else this.showNav = true; */
+
   }
 
 }

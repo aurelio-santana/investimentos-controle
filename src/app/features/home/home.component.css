@@ -1,0 +1,175 @@
+/* * {
+  background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+}
+
+div {
+  height: 100vh;
+  width: 100vh;
+}
+ */
+
+* {
+  /* background-color: rgb(10, 10, 10); */
+  background-color: rgb(0, 0, 0);
+  color:aliceblue;
+  font-family: Aristotelica !important;
+  /* background-image: url(../../../assets/imgs/wavy-lines.png); */
+}
+
+img {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: Aristotelica;
+/*   src: url('../../../assets/fonts/zetafonts-aristotelica-pro/Zetafonts - Aristotelica Pro Display Extralight.otf'); */
+  src: url('../../../assets/fonts/zetafonts-aristotelica-pro/Zetafonts - Aristotelica Pro Text Extralight.otf');
+/*   src: url('../../../assets/fonts/zetafonts-aristotelica-pro/Zetafonts - AristotelicaIcons-DemiBold.otf');
+  src: url('../../../assets/fonts/zetafonts-aristotelica-pro/Zetafonts - AristotelicaPro CndText Extralight.otf'); */
+}
+
+/* Navbar */
+
+.container-fluid {
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.login_button:first-child {
+  margin-left: 5px;
+}
+.login_button {
+  border: 1px solid #00ce76;
+  border-radius: 2px;
+  /* border-radius: 6px; */
+  display: flex;
+  align-items: center;
+  color: #00ce76;
+  text-decoration: none;
+  outline: none;
+  background: none;
+  margin-left: 10px;
+  padding: 10px 25px;
+}
+
+.login_button:hover {
+  border-color:aliceblue;
+}
+
+.login_button a {
+  text-decoration: none;
+  color: #00ce76;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.collapse.show.nav_login_button {
+  flex-basis: auto;
+}
+
+.navbar-brand {
+  font-family: Aristotelica;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 28px;
+  margin-top: 5px;
+}
+
+.navbar-brand span{
+  color:#00ce76;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-link {
+  font-size: 16px;
+  /* font-weight: 600; */
+  letter-spacing: 2px;
+  margin: 5px 10px 0 10px;
+}
+
+.nav-link:hover{
+    color:#00ce76;
+}
+
+/* Content */
+
+.container_content {
+  display: flex;
+  height: 90vh;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url(../../../assets/imgs/wavy-lines.png);
+
+  /* opção 1 com @media */
+  /* background-position: 0 -104px; */
+
+  /* opção 2 */
+  /* background-position-x: right;
+  background-position-y: bottom; */
+
+  /* opção 3 */
+  background-size: cover;
+  background-position: center;
+}
+
+/* @media screen and (max-width: 1680px){
+  .container_content {
+    background-position: center;
+    background-size: 150%;
+    background-repeat: no-repeat;
+  }
+} */
+
+.item_content {
+  /* background-color: rgba(0, 0, 0, 0); */
+  background-color: transparent;
+}
+
+.item_content.left {
+  max-width: 480px;
+  margin-left: 24px;
+}
+
+.item_content.left span {
+  color:#00ce76;
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.item_content.right {
+
+}
+.item_content.right img {
+  max-height: 60vh;
+  background-color: transparent;
+}
+
+h1 {
+  font-weight: 700;
+  color:#00ce76;
+  font-size: 30px;
+}
+
+h2 {
+  background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+/**
+center navbar li
+
+position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    **/

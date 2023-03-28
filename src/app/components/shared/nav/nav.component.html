@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Invest</a>
+        <a [routerLink]="['/temphome']" class="navbar-brand" href="#">Invest</a>
         <button
             class="navbar-toggler"
             type="button"
@@ -56,6 +56,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/temphome']" class="nav-link">temphome</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

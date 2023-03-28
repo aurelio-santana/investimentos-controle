@@ -23,6 +23,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './features/login/login.component';
+import { HomeComponent } from './features/home/home.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoginComponent } from './features/login/login.component';
     TitleComponent,
     OperationsListComponent,
     BuySellPipe,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
 
   ],
   imports: [

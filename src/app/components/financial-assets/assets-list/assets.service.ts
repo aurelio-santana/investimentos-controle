@@ -63,5 +63,7 @@ export class AssetsService {
     return this.http.delete<Stock>(`${this.url}/${id}`);
   }
 
+
+
 }
 

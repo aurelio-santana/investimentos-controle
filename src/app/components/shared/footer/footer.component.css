@@ -1,4 +1,6 @@
-* { background-color: #f2f2f2;
+* {
+  /* background-color: #f2f2f2; */
+  background-color: #121314;
 }
 
 .footer {
@@ -8,5 +10,7 @@
 }
 
 .footer-content {
-  margin-left: 8px;
+  margin: 4px 0 0 8px;
+  color: #f2f2f2;
+  font-size: x-small;
 }
