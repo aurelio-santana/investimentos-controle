@@ -6,6 +6,7 @@
         </div>
     </div>
 
+    <!-- Table Stock -->
     <div class="col">
         <table class="table" style="width: 100%">
             <thead class="table-secondary">
@@ -30,7 +31,12 @@
                     <td class="">{{ stock.total | currency : "R$ " }}</td>
                     <!-- <td class="">{{ stock.quantity * stock.averagePrice | currency : "BRL" }}</td> -->
                     <td class="">{{ stock.currentQuote | currency : "R$ " }}</td>
-                    <td class="">{{ stock.profit | currency : "R$ " }}</td>
+                    <!-- <td class="">{{ stock.profit | currency : "R$ " }}</td> -->
+                    <td class="">
+                        {{
+                            stock.currentQuote * stock.quantity - stock.averagePrice * stock.quantity | currency : "BRL"
+                        }}
+                    </td>
                     <td class="">
                         <div class="btn-group">
                             <button
@@ -45,6 +51,55 @@
                             >
                                 Remover
                             </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Table Reit -->
+    <div class="col">
+        <table class="table" style="width: 100%">
+            <thead class="table-secondary">
+                <tr>
+                    <th>#</th>
+                    <th>Ticker</th>
+                    <th>Quantidade</th>
+                    <th>Preço Médio</th>
+                    <th>Total</th>
+                    <th>Cotação atual</th>
+                    <th>Lucro</th>
+                    <th>Editar/Remover</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- <tr class="" *ngFor="let reit of reitsSum"> -->
+                <tr class="" *ngFor="let reit of reits">
+                    <td class="">{{ reit.id }}</td>
+                    <td class="">{{ reit.ticker }}</td>
+                    <td class="">{{ reit.quantity }}</td>
+                    <td class="">{{ reit.averagePrice | currency : "R$ " }}</td>
+                    <td class="">{{ reit.total | currency : "R$ " }}</td>
+                    <td class="">{{ reit.currentQuote | currency : "R$ " }}</td>
+                    <td class="">
+                        {{ reit.currentQuote * reit.quantity - reit.averagePrice * reit.quantity | currency : "BRL" }}
+                    </td>
+                    <td class="">
+                        <div class="btn-group">
+                            <!-- <button
+                              class="btn btn-sm btn-outline-primary"
+                              (click)="selectStocks(reit); openModal(template)"
+                          >
+                              Editar
+                          </button>
+                          <button
+                              class="btn btn-sm btn-outline-danger"
+                              (click)="selectStocks(reit); openModal(deleteForm)"
+                          >
+                              Remover
+                          </button> -->
                         </div>
                     </td>
                 </tr>

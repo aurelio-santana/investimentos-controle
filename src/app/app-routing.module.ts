@@ -5,11 +5,15 @@ import { AssetsListComponent } from './components/financial-assets/assets-list/a
 import { OperationsListComponent } from './components/financial-assets/assets-list/operations-list/operations-list.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
+import { FinancialAssetsComponent } from './components/financial-assets/financial-assets.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: AddAssetFormComponent},
+
+  /* { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: AddAssetFormComponent}, */
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: FinancialAssetsComponent},
 
   { path: 'operations/stock', component: OperationsListComponent },
   { path: 'assets', component: AssetsListComponent },

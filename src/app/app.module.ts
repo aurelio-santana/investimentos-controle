@@ -24,6 +24,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './features/login/login.component';
 import { HomeComponent } from './features/home/home.component';
+import { EchartsComponent } from './features/charts/echarts/echarts.component';
+import { LightweightComponent } from './features/charts/lightweight/lightweight.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { HomeComponent } from './features/home/home.component';
     OperationsListComponent,
     BuySellPipe,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    EchartsComponent,
+    LightweightComponent
 
   ],
   imports: [

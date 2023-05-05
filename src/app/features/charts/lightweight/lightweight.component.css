@@ -1,0 +1,110 @@
+@import "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+
+
+
+
+/* .container {
+  max-width: 1280px;
+  min-height: 720px;
+  height: auto;
+  background-color: #f3f4f6;
+  // border: 1px solid rgb(31, 31, 31);
+  box-shadow: 0 0px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  align-self: center;
+} */
+
+.area-box {
+  max-width: 800px;
+/*   min-height: 720px; */
+/*   height: auto; */
+  background-color: #fff;
+  /* border: 1px solid rgb(31, 31, 31); */
+  box-shadow: 0 0px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 4px;
+/*   align-self: center; */
+  padding: 20px;
+}
+
+.switcher {
+	display: flex;
+	align-items: center;
+	height: 30px;
+	margin-top: 8px;
+	color: #2196F3;
+}
+
+.switcher-item {
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	padding: 6px 8px;
+	font-size: 14px;
+	color: #262b3e;
+	background-color: transparent;
+	margin-right: 8px;
+	border: none;
+	border-radius: 4px;
+	outline: none;
+}
+
+.switcher-item:hover {
+	background-color: #f2f3f5;
+}
+
+.switcher-active-item {
+	text-decoration: none;
+	cursor: default;
+	color: #262b3e;
+}
+
+.switcher-active-item,
+.switcher-active-item:hover {
+	background-color: #e1eff9;
+}
+
+/** lightweight chart **/
+
+.total-value-container {
+  display: flex;
+}
+
+.total-value {
+  /* font-family: Nunito; */
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.profit-value {
+  display: flex;
+  font-weight: 400;
+  font-size: 11px;
+  background-color: #d1f8e5;
+  height: 19px;
+  border-radius: 11px;
+  padding: 0 9px 0 1px;
+  margin-left: 6px;
+  color: #3b6b55;
+}
+
+p {
+  font-family: Nunito;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48,
+}
+
+.down {
+  color: #FF0000;
+}
+
+.up {
+  color: #00ff00;
+  align-self: center;
+}

@@ -1,6 +1,15 @@
 /* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
 
 
+
+
+.login-page {
+  /* center page */
+  display: flex;
+  justify-content: center;
+  transform: translateY( 15% );
+}
+
 .login-page .content {
   width: 1040px;
   height: 660px;
@@ -51,6 +60,7 @@
   width: 336px;
   /* border-right: 4px solid #979797; */
   border-right: 4px solid #00ad1d;
+  /* border-right: 4px solid #00ce76; verde novo */
 }
 
 .login-page .content .logo-clear button {

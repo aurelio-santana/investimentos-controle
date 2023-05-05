@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs/internal/Observable';
 import { AssetsService } from './assets.service';
 import { Stock } from './model/Stock';
+import { Reit } from './model/Reit';
 
 @Component({
   selector: 'app-assets-list',
@@ -27,6 +28,8 @@ export class AssetsListComponent implements OnInit {
   public oldTimeUpdate: any;
   public apiStatus: number = 1; //api loading
 
+  public reits: Reit[];
+
 
 
   openModal(template: TemplateRef<any>) {
@@ -46,6 +49,7 @@ export class AssetsListComponent implements OnInit {
     + " " + data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds() ));
 
     this.loadStocks();
+    this.loadReits();
 
 
 
@@ -142,7 +146,7 @@ export class AssetsListComponent implements OnInit {
   addStocks(stock: Stock) {
     stock.id = 0; //Evitar que o id do form fique nulo. Refatorar.
     console.log(stock);
-    this.assetsService.post(stock).subscribe(
+    this.assetsService.postStock(stock).subscribe(
       (retorno: Stock) => {
         console.log("addStocks: ", retorno);
         this.stockForm.reset();
@@ -161,7 +165,7 @@ export class AssetsListComponent implements OnInit {
   }
 
   editStocks(stock: Stock) {
-    this.assetsService.put(stock.id, stock).subscribe(
+    this.assetsService.putStock(stock.id, stock).subscribe(
       (retorno: Stock) => {
         console.log("editStocks: ", retorno);
         this.stockForm.reset();
@@ -175,7 +179,7 @@ export class AssetsListComponent implements OnInit {
   }
 
   deleteStocks(){
-    this.assetsService.delete(this.selectedStock.id).subscribe(
+    this.assetsService.deleteStock(this.selectedStock.id).subscribe(
       (retorno: Stock) => {
         console.log("deleteStocks: ",retorno);
         this.stockForm.reset();
@@ -275,6 +279,36 @@ handleGetPriceByTicker = (ticker: string) => {
       return 0;
     }
   }
+
+
+
+
+/** Reit **/
+  loadReits()
+  {
+    this.assetsService.getReit().subscribe(
+
+      (reits: Reit[]) => {
+        this.reits = reits;
+        console.log("loadReits: ", this.reits);
+        //this.reitsSum = this.loadingg();
+
+        /* this.getPrice();
+        this.apiStatus = 2; //api on
+        console.log("AQUI", this.newTimeUpdate); */
+
+      },
+      (erro:any) => {
+        //this.apiStatus = 0; //api off
+        console.error(erro);
+      }
+    );
   }
+
+
+
+
+
+}
 
 

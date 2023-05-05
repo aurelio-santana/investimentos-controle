@@ -121,7 +121,7 @@ export class OperationsListComponent implements OnInit {
   addStocks(stock: Stock) {
     stock.id = 0; //Evitar que o id do form fique nulo, refatorar.
     console.log(stock);
-    this.assetsService.post(stock).subscribe(
+    this.assetsService.postStock(stock).subscribe(
       (retorno: Stock) => {
         console.log(retorno);
         this.stockForm.reset();
@@ -141,7 +141,7 @@ export class OperationsListComponent implements OnInit {
   }
 
   editStocks(stock: Stock) {
-    this.assetsService.put(stock.id, stock).subscribe(
+    this.assetsService.putStock(stock.id, stock).subscribe(
       (retorno: Stock) => {
         console.log(retorno);
         this.stockForm.reset();
@@ -155,7 +155,7 @@ export class OperationsListComponent implements OnInit {
   }
 
   deleteStocks() {
-    this.assetsService.delete(this.selectedStock.id).subscribe(
+    this.assetsService.deleteStock(this.selectedStock.id).subscribe(
       (retorno: Stock) => {
         console.log(retorno);
         this.stockForm.reset();
